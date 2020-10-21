@@ -17,7 +17,7 @@
             type="text"
             name="username"
             id="username"
-            class="border border-gray-400 hover:border-gray-500 focus:outline-none focus:border-gray-600 p-2 w-full @error('username') border border-red-500 @enderror"
+            class="rounded border border-gray-400 hover:border-gray-500 focus:outline-none focus:border-gray-600 p-2 w-full @error('username') border border-red-500 @enderror"
             autocomplete="username"
             autofocus
             value="{{ old('username')}}"
@@ -42,7 +42,7 @@
             type="text"
             name="name"
             id="name"
-            class="border border-gray-400 hover:border-gray-500 focus:outline-none focus:border-gray-600 p-2 w-full @error('name') border border-red-500 @enderror"
+            class="rounded border border-gray-400 hover:border-gray-500 focus:outline-none focus:border-gray-600 p-2 w-full @error('name') border border-red-500 @enderror"
             autocomplete="name"
             autofocus
             value="{{ old('name')}}"
@@ -65,7 +65,7 @@
           <input
             id="email"
             type="email"
-            class="border border-gray-400 hover:border-gray-500 focus:outline-none focus:border-gray-600 p-2 w-full @error('email') border border-red-500 @enderror"
+            class="rounded border border-gray-400 hover:border-gray-500 focus:outline-none focus:border-gray-600 p-2 w-full @error('email') border border-red-500 @enderror"
             name="email"
             value="{{ old('email') }}"
             required
@@ -89,7 +89,7 @@
           <input
             id="password"
             type="password"
-            class="border border-gray-400 hover:border-gray-500 focus:outline-none focus:border-gray-600 p-2 w-full @error('password') border border-red-500 @enderror"
+            class="rounded border border-gray-400 hover:border-gray-500 focus:outline-none focus:border-gray-600 p-2 w-full @error('password') border border-red-500 @enderror"
             name="password"
             required
             autocomplete="current-password">
@@ -109,7 +109,7 @@
           <input
             id="password_confirmation"
             type="password"
-            class="border border-gray-400 hover:border-gray-500 focus:outline-none focus:border-gray-600 p-2 w-full @error('password_confirmation') border border-red-500 @enderror"
+            class="rounded border border-gray-400 hover:border-gray-500 focus:outline-none focus:border-gray-600 p-2 w-full @error('password_confirmation') border border-red-500 @enderror"
             name="password_confirmation"
             required
             autocomplete="new-password">
@@ -123,7 +123,7 @@
         <div>
           <button 
             type="submit"
-            class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500">
+            class="bg-blue-400 text-white rounded-lg py-2 px-4 hover:bg-blue-500">
             {{ __('Register') }}
           </button>
         </div>

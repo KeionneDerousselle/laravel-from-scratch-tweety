@@ -14,7 +14,7 @@
               <input
                 id="email"
                 type="email"
-                class="border border-gray-400 hover:border-gray-500 focus:outline-none focus:border-gray-600 p-2 w-full @error('email') border border-red-500 @enderror"
+                class="rounded border border-gray-400 hover:border-gray-500 focus:outline-none focus:border-gray-600 p-2 w-full @error('email') border border-red-500 @enderror"
                 name="email"
                 value="{{ old('email') }}"
                 required
@@ -38,7 +38,7 @@
               <input
                 id="password"
                 type="password"
-                class="border border-gray-400 hover:border-gray-500 focus:outline-none focus:border-gray-600 p-2 w-full @error('password') border border-red-500 @enderror"
+                class="rounded border border-gray-400 hover:border-gray-500 focus:outline-none focus:border-gray-600 p-2 w-full @error('password') border border-red-500 @enderror"
                 name="password"
                 required
                 autocomplete="current-password">
@@ -71,12 +71,12 @@
   
           <div class="flex flex-col md:items-center md:flex-row md:justify-between">
             <button
-              class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500 mb-6 md:mb-0 mr-0 md:mr-6"
+              class="bg-blue-400 text-white rounded-lg py-2 px-4 hover:bg-blue-500 mb-6 md:mb-0 mr-0 md:mr-6"
               type="submit">
               {{ __('Login') }}
             </button>
   
-            <a 
+            <a
               href="{{ route('password.request') }}"
               class="text-xs text-gray-700 hover:text-blue-600">
               {{ __('Forgot Your Password?') }}
