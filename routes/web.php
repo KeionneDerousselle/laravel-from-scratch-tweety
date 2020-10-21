@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TweetsController;
+use App\Http\Controllers\ProfilesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/tweets', [TweetsController::class, 'index'])->name('tweets.index');
     Route::post('/tweets', [TweetsController::class, 'store'])->name('tweets.store');
 });
+
+Route::get('/profiles/{user}', [ProfilesController::class, 'show'])->name('profiles.show');

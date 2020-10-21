@@ -1,14 +1,16 @@
 <div class="flex p-4 border-b border-b-gray-400">
   <div class="mr-2 flex-shrink-0">
-    <img 
-      src="{{ $tweet->user->avatar }}" 
-      alt=""
-      class="rounded-full mr-2">
+    <a href="{{ $tweet->user->profileLink()}}">
+      <img 
+        src="{{ $tweet->user->avatar(50, 50) }}" 
+        alt="Profile Image"
+        class="rounded-full mr-2">
+    </a>
   </div>
 
   <div>
     <h3 class="font-bold mb-4">
-      {{ $tweet->user->name }}
+      <a href="{{ $tweet->user->profileLink()}}">{{ $tweet->user->name }}</a>
     </h3>
     <p class="text-sm">
       {{ $tweet->body }}

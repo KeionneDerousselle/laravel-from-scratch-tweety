@@ -56,9 +56,9 @@ class User extends Authenticatable
         return $this->hasMany(Tweet::class);
     }
 
-    public function getAvatarAttribute()
+    public function avatar($width = 40, $height = 40)
     {
-        return "https://avatars.dicebear.com/api/avataaars/".$this->email.".svg?width=40&height=40&mode=exclude&mouth[]=vomit";
+        return "https://avatars.dicebear.com/api/avataaars/".$this->email.".svg?width=".$width."&height=".$height."&mode=exclude&mouth[]=vomit";
     }
 
     public function follow(User $user)
@@ -74,5 +74,15 @@ class User extends Authenticatable
     public function followers()
     {
         return $this->belongsToMany(User::class, 'follows', 'following_user_id', 'follower_user_id')->withTimestamps();
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
+
+    public function profileLink()
+    {
+        return route('profiles.show', $this);
     }
 }
