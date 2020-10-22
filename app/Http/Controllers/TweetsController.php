@@ -23,7 +23,7 @@ class TweetsController extends Controller
             'body'=> $attributes['body']
         ]);
 
-        return redirect('/home');
+        return redirect(route('tweets.index'));
     }
 
     protected function validateTweet()

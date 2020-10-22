@@ -6,10 +6,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Followable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, Followable;
 
     /**
      * The attributes that are mass assignable.
@@ -17,6 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'username',
         'name',
         'email',
         'password',
@@ -53,32 +55,12 @@ class User extends Authenticatable
 
     public function tweets()
     {
-        return $this->hasMany(Tweet::class);
+        return $this->hasMany(Tweet::class)->latest();
     }
 
     public function avatar($width = 40, $height = 40)
     {
-        return "https://avatars.dicebear.com/api/avataaars/".$this->email.".svg?width=".$width."&height=".$height."&mode=exclude&mouth[]=vomit";
-    }
-
-    public function follow(User $user)
-    {
-        return $this->following()->save($user);
-    }
-
-    public function following()
-    {
-        return $this->belongsToMany(User::class, 'follows', 'follower_user_id', 'following_user_id')->withTimestamps();
-    }
-
-    public function followers()
-    {
-        return $this->belongsToMany(User::class, 'follows', 'following_user_id', 'follower_user_id')->withTimestamps();
-    }
-
-    public function getRouteKeyName()
-    {
-        return 'name';
+        return "https://avatars.dicebear.com/api/avataaars/".$this->username.".svg?width=".$width."&height=".$height."&mode=exclude&mouth[]=vomit";
     }
 
     public function profileLink()

@@ -1,6 +1,6 @@
 <h2 class="font-bold text-xl mb-4">Following</h2>
 <ul>
-  @foreach (auth()->user()->following as $user)
+  @forelse (auth()->user()->following as $user)
   <li class="mb-4">
     <a href="{{ $user->profileLink()}}" class="flex items-center text-sm">
       <img 
@@ -10,5 +10,7 @@
       <span>{{ $user->name }}</span>
     </a>
   </li>
-  @endforeach
+  @empty
+    <span class="block p-4"> You're not following anyone yet!</span>
+  @endforelse
 </ul>

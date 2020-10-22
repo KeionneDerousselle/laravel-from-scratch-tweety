@@ -19,17 +19,16 @@
           <p class="text-sm">Joined {{ $user->created_at->diffForHumans() }}</p>
         </div>
 
-        <div>
-          <a
-            href=""
-            class="rounded-full border border-gray-400 py-2 px-4 bg-white mr-2 text-sm">
-            Edit Profile
-          </a>
-          <a
-            href=""
-            class="bg-blue-500 rounded-full shadow py-2 px-4 text-white text-sm">
-            Follow Me
-          </a>
+        <div class="flex">
+          @can('edit', $user)
+            <x-button-form method="GET" action="{{ route('profiles.edit', $user)}}" button-text="Edit Profile" buttonStyle="secondary"/>
+          @else
+            @if(current_user()->isFollowing($user))
+              <x-button-form method="DELETE" action="{{ route('follows.destroy', $user) }}" button-text="Unfollow Me"/>
+            @else
+              <x-button-form method="POST" action="{{ route('follows.store', $user) }}" button-text="Follow Me"/>
+            @endif
+          @endcan
         </div>
       </div>
 
