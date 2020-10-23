@@ -4,7 +4,7 @@
   <li class="mb-4">
     <a href="{{ $user->profileLink()}}" class="flex items-center text-sm">
       <img 
-        src="{{ $user->avatar() }}" 
+        src="{{ $user->getAvatarLink() }}" 
         alt="Profile Image"
         class="rounded-full mr-2">
       <span>{{ $user->name }}</span>

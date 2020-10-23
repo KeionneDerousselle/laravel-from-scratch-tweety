@@ -2,7 +2,7 @@
   <div class="mr-2 flex-shrink-0">
     <a href="{{ $tweet->user->profileLink()}}">
       <img 
-        src="{{ $tweet->user->avatar(50, 50) }}" 
+        src="{{ $tweet->user->getAvatarLink(50, 50) }}" 
         alt="Profile Image"
         class="rounded-full mr-2">
     </a>

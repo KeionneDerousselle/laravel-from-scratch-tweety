@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/follow/{user:username}', [FollowsController::class, 'store'])->name('follows.store');
     Route::delete('/follow/{user:username}', [FollowsController::class, 'destroy'])->name('follows.destroy');
     Route::get('/profiles/{user:username}/edit', [ProfilesController::class, 'edit'])->name('profiles.edit');
+    Route::put('/profiles/{user:username}', [ProfilesController::class, 'update'])->name('profiles.update');
 });
 
 Route::get('/profiles/{user:username}', [ProfilesController::class, 'show'])->name('profiles.show');

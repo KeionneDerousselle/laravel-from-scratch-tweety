@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar'
     ];
 
     /**
@@ -58,9 +59,9 @@ class User extends Authenticatable
         return $this->hasMany(Tweet::class)->latest();
     }
 
-    public function avatar($width = 40, $height = 40)
+    public function getAvatarLink($width = 40, $height = 40)
     {
-        return "https://avatars.dicebear.com/api/avataaars/".$this->username.".svg?width=".$width."&height=".$height."&mode=exclude&mouth[]=vomit";
+        return $this->avatar ? asset('storage/'.$this->avatar) : "https://avatars.dicebear.com/api/avataaars/".$this->username.".svg?width=".$width."&height=".$height."&mode=exclude&mouth[]=vomit";
     }
 
     public function profileLink()

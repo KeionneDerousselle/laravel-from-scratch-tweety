@@ -7,7 +7,7 @@
         class="mb-2">
 
       <img 
-        src="{{ $user->avatar(100, 100) }}"
+        src="{{ $user->getAvatarLink(100, 100) }}"
         alt="Avatar Image"
         class="rounded-full absolute bottom-0 transform -translate-x-1/2 translate-y-1/2"
         style="width:100px; left: 50%;">
